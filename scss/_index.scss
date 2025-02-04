@@ -1,0 +1,8 @@
+@use "variables" as v;
+
+.index {
+  .carousel-container img {
+    border-radius: v.$border-radius;
+  }
+}
+

@@ -1,0 +1,10 @@
+@use "mixins" as m;
+@use "variables" as v;
+
+.btn-mapa {
+  @include m.button(v.$primary-color);
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+}
+

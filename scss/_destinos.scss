@@ -1,0 +1,167 @@
+@use "variables" as v;
+@use "sass:color";
+
+/* 📌 Corrección 1: Evitar que la barra de navegación cubra contenido */
+body {
+    padding-top: 80px; // Ajustar según la altura de la navbar
+}
+
+/* 📌 SECCIÓN DESTINOS */
+.destinos {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: v.$light-gray;
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .destinos-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        max-width: 1000px;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    /* 📌 Corrección 2: Ajuste de imágenes principales */
+    .contenedor-imagen {
+        position: relative;
+        overflow: hidden;
+        border-radius: v.$border-radius;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        max-width: 320px; // Ajustamos para mejorar la responsividad
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+
+        /* 📌 Corrección 3: Mostrar nombre de provincia en overlay */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: v.$white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:hover .overlay {
+            opacity: 1;
+        }
+    }
+}
+
+/* 📌 MAPA DE DESTINOS */
+.mapa-argentina {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+
+    &.oculto {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .provincia {
+        position: relative;
+        width: 200px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 📌 Mostrar nombre de provincia al pasar el mouse */
+        &::after {
+            content: attr(data-descripcion);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    }
+}
+
+/* 📌 BOTÓN "Ver otros destinos" */
+.btn-mapa {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 25px;
+    background: v.$primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    width: fit-content; // Evita que ocupe todo el ancho
+
+    &:hover {
+        background: color.scale(v.$primary-color, $lightness: 10%);
+        transform: scale(1.05);
+    }
+}
+
+/* 📌 RESPONSIVE */
+@media (max-width: 768px) {
+    .destinos-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenedor-imagen {
+        max-width: 90%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+}

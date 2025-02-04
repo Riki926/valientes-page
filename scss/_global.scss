@@ -1,0 +1,159 @@
+@use "variables" as v;
+
+body {
+  font-family: v.$font-primary;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: v.$white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='627' height='627' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='88' y1='88' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%2377587d'/%3E%3Cstop offset='1' stop-color='%23b896be'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='75' y1='76' x2='168' y2='160'%3E%3Cstop offset='0' stop-color='%23868686'/%3E%3Cstop offset='0.09' stop-color='%23ababab'/%3E%3Cstop offset='0.18' stop-color='%23c4c4c4'/%3E%3Cstop offset='0.31' stop-color='%23d7d7d7'/%3E%3Cstop offset='0.44' stop-color='%23e5e5e5'/%3E%3Cstop offset='0.59' stop-color='%23f1f1f1'/%3E%3Cstop offset='0.75' stop-color='%23f9f9f9'/%3E%3Cstop offset='1' stop-color='%23FFFFFF'/%3E%3C/linearGradient%3E%3Cfilter id='c' x='0' y='0' width='200%25' height='200%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='12' /%3E%3C/filter%3E%3C/defs%3E%3Cpolygon fill='url(%23a)' points='0 174 0 0 174 0'/%3E%3Cpath fill='%23000' fill-opacity='0.7' filter='url(%23c)' d='M121.8 174C59.2 153.1 0 174 0 174s63.5-73.8 87-94c24.4-20.9 87-80 87-80S107.9 104.4 121.8 174z'/%3E%3Cpath fill='url(%23b)' d='M142.7 142.7C59.2 142.7 0 174 0 174s42-66.3 74.9-99.3S174 0 174 0S142.7 62.6 142.7 142.7z'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.share-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px; // Tamaño del botón compartir
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.share-button .main-icon {
+  width: 30px; // Tamaño del ícono de compartir
+  height: 30px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 40px; // Tamaño fijo de los íconos de redes
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.galeria img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.share-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: v.$dark-gray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: v.$box-shadow;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .main-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(1); // Hace que el icono sea blanco sobre fondo oscuro
+  }
+
+  .social-icons {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: v.$dark-gray;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: v.$box-shadow;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  &:hover .social-icons {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .social-icons img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+
+
+.carrusel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+}
+
+.carrusel img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover; // 📌 Ajusta la imagen sin deformarla
+  border-radius: 8px;
+}
+
+/* 📌 Responsividad */
+@media (max-width: 768px) {
+  .carrusel img {
+    max-height: 300px; // Reduce la altura en pantallas pequeñas
+  }
+}
+
+@media (max-width: 480px) {
+  .carrusel img {
+    max-height: 250px;
+  }
+}

@@ -1,0 +1,133 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  background-color: #ffffff;
+ 
+ 
+  
+  
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.navbar .nav-link {
+  color: #272323;
+  font-size: 1rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: #00ff26;
+  transform: scale(1.1);
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.testimonios-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.testimonios-section .carousel-inner {
+  max-width: 900px;
+  margin: 20px auto;
+}
+.testimonios-section .carousel-item {
+  padding: 20px;
+}
+.testimonios-section .testimonio {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+}
+.testimonios-section .cliente {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.testimonios-section .cliente img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.testimonios-section .estrellas {
+  color: #ffc107;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner {
+    padding: 0 10px;
+  }
+}
+.btn-mapa {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #a945c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-mapa:hover {
+  background-color: #272323;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
+  }
+  .logo {
+    height: 40px;
+  }
+  .row > div {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+@media (max-width: 576px) {
+  .row > div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .carousel-container img {
+    height: auto;
+    width: 100%;
+  }
+  .sucursales img {
+    max-width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .contenedor-contacto {
+    padding: 0 10px;
+  }
+  .formulario-contacto {
+    max-width: 90%;
+  }
+}

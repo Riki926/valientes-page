@@ -1,0 +1,103 @@
+@use "variables" as v;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: v.$white;
+  box-shadow: v.$box-shadow;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 70px; // Ajuste de altura
+}
+
+.logo {
+  max-width: 65px; // Tamaño más pequeño para el logo
+  height: auto;
+  margin-left: 15px; // Separa el logo del borde
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-grow: 1; // Ocupa el espacio restante
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: v.$text-color;
+  padding: 10px 15px;
+  border-radius: v.$border-radius;
+  transition: color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    color: v.$primary-color;
+    transform: scale(1.05);
+  }
+}
+
+/* 📌 Agregar margen superior al contenido para evitar que quede detrás del navbar */
+main {
+  margin-top: 90px; // Mayor margen para evitar solapamiento
+}
+
+/* 📌 Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .logo {
+    max-width: 50px; // Reduce el logo en móviles
+    margin-bottom: 5px;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  main {
+    margin-top: 110px; // Más margen en móviles
+  }
+}
+
+
+
+
+
+
+
+
+

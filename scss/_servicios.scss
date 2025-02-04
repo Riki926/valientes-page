@@ -1,0 +1,104 @@
+@use "variables" as v;
+
+.servicios {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: v.$light-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .servicios-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // 📌 Ajustamos mejor la distribución
+        gap: 20px;
+        max-width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .servicio {
+        background: v.$white;
+        padding: 20px;
+        border-radius: v.$border-radius;
+        box-shadow: v.$box-shadow;
+        text-align: center;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%; // 📌 Para que ocupe bien el espacio disponible
+        max-width: 320px;
+        min-height: 380px;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+            width: 100%;
+            max-width: 220px; // 📌 Imagen más grande pero sin desbordar
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: v.$primary-color;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            color: v.$text-color;
+            max-width: 90%;
+        }
+    }
+}
+
+/* 📌 Diseño responsive mejorado */
+@media (max-width: 768px) {
+    .servicios-container {
+        grid-template-columns: 1fr; // 📌 Ahora en móviles será una sola columna
+        justify-content: center;
+        width: 100%;
+    }
+
+    .servicio {
+        max-width: 90%;
+        margin: 0 auto;
+        min-height: auto;
+    }
+
+    img {
+        max-width: 180px;
+        height: auto;
+    }
+}
+
+
+
+
+
+
